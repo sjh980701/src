@@ -36,8 +36,8 @@ jobs:
           echo "ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}" >> $GITHUB_ENV
           echo "ECR_REPOSITORY=front" >> $GITHUB_ENV #본인 ecr레포에 맞게 수정
           echo "IMAGE_TAG=${{ github.run_number }}" >> $GITHUB_ENV
-          echo "GIT_EMAIL=sjh98070156@gmail.com" >> $GITHUB_ENV
-          echo "GIT_NAME=sjh980701" >> $GITHUB_ENV
+          echo "GIT_EMAIL=pcmin929@gmail.com" >> $GITHUB_ENV
+          echo "GIT_NAME=pcmin929" >> $GITHUB_ENV
 
       - name: Docker Image Build
         id: build-image
@@ -60,7 +60,7 @@ jobs:
         run: |
           sed -i "s@ \
           image: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:.*@ \
-          image: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}@g" deploy/deploy.yml
+          image: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}@g" deploy.yml
 
       - name: Commit and Push
         run: |
