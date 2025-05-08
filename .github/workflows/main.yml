@@ -8,13 +8,16 @@ on: # on 언제 action을 동작시킬지
     - '.gitignore'
     - '.dockerignore'
 
-    jobs:
+
+jobs:
   ci:
     runs-on: ubuntu-latest  #깃액션이 동작하는 환경
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1 #가장 최근 commit의 히스토리만 가져옴.
+
+
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
